@@ -5,20 +5,23 @@ public class Komiwojazer
     public static void main( String[] args )
     {
     	
+    	// ilość miast
+    //	City city = new City(5);
     	
-    	Town town = new Town(10);
-    	Population parent = new Population();
-    //	town.CitiesCoord();
-    //	town.Distance();
+    	// ilość rodziców, długość chromosomu
+    	Population parent = new Population(5,5);
+    //	city.citiesCoord();
+    //	city.distance();
     	
-    	parent.Parent();
-    	System.out.println(" ");
-    	parent.Parent();
-    	System.out.println(" ");
-    	parent.Parent();
+    //	parent.parent();
+    //	System.out.println(" ");
+    //	parent.parent();
+    //	System.out.println(" ");
+    //	parent.parent();
     	
+    //	System.out.print(parent.rating(parent.parent(), city.distance()));
     	
-    	
+    	parent.startPopulation();
     	
     	
     	

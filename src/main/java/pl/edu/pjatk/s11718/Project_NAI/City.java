@@ -2,20 +2,20 @@ package pl.edu.pjatk.s11718.Project_NAI;
 
 import java.util.Random;
 
-public class Town {
+public class City {
 
-	int cities_amount = 10;
+	int cities_amount;
+	Random random = new Random();
+	int[] cityX;
+	int[] cityY;
 	
-	public Town(int cities_amount){
+	public City(int cities_amount){
 		this.cities_amount = cities_amount;
-		
 	}
 	
-	Random random = new Random();
-	int[] cityX = new int[cities_amount];
-	int[] cityY = new int[cities_amount];
-	
-	public void CitiesCoord(){
+	public void citiesCoord(){
+		cityX = new int[cities_amount];
+		cityY = new int[cities_amount];
 			
 		for (int i = 0; i < cities_amount; i++){
 			cityX[i] = random.nextInt(500)+1;
@@ -28,14 +28,12 @@ public class Town {
 		System.out.println(" ");
 		
 		for (int i = 0; i < cities_amount; i++){
-
 			System.out.print(cityY[i]+" ");
-
 		}
+		
 	}	
 	
-	
-	public void Distance(){
+	public double[][] distance(){
 		double[][] distance = new double[cities_amount][cities_amount];
 		
 		for (int i = 0; i < cities_amount; i++){
@@ -50,5 +48,6 @@ public class Town {
 			}
 			System.out.println(" ");
 		}
+		return distance;
 	}
 }
