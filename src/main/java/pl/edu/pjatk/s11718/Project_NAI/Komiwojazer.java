@@ -6,14 +6,20 @@ public class Komiwojazer
     {
     	
     	// ilość miast
-    	City city = new City(5);
-    	Population parent = new Population(5,5);
-    	//Tournament tournament = new Tournament(5,5);
-    	Child child = new Child(5, 5);
-    	// ilość rodziców, długość chromosomu
-
-    	
+    	City city = new City();
+    	city.setCities_amount(5);
     	city.citiesCoord();
+    	Child child = new Child();
+    	
+    	double[][] distance = city.distance();
+    	
+    	child.setChromosome_length(5);
+    	child.setParents_amount(city.getCities_amount());
+    	child.crossover(distance);
+    	
+    	
+    	
+    	
     	//city.distance();
     	
     //	parent.parent();
@@ -22,7 +28,7 @@ public class Komiwojazer
     //	System.out.println(" ");
     //	parent.parent();
     	
-    	child.crossover();
+    	
     	
 
     	

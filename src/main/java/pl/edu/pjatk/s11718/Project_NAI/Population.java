@@ -5,13 +5,27 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Population {
 	
-	protected int parents_amount;
-	protected int chromosome_length;
+	 int chromosome_length;
+	 int parents_amount;
 	
-	public Population(int parents_amount, int chromosome_length){
+	public int getParents_amount() {
+		return parents_amount;
+	}
+
+	public void setParents_amount(int parents_amount) {
 		this.parents_amount = parents_amount;
+	}
+
+	public int getChromosome_length() {
+		return chromosome_length;
+	}
+
+	public void setChromosome_length(int chromosome_length) {
 		this.chromosome_length = chromosome_length;
 	}
+
+	
+
 	
 	public int[][] startPopulation(){
 		int[][] startPopulation = new int[chromosome_length][parents_amount];
@@ -63,18 +77,12 @@ public class Population {
 			int city2 = array[rand][i+1];
 			sum += distance[city1][city2];
 		}
-		sum += distance[array.length][0];
+		sum += distance[array.length-1][0];
 		return sum;
 	}
 	
 	
-	public void child(){
-		
-	}
-	
-	public void crossover(){
-		
-	}
+
 	
 	
 }

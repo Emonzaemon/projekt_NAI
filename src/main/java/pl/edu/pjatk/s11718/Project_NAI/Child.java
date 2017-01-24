@@ -6,28 +6,18 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Child extends Population{
 
 	
-	private int parents_amount;
-	private int chromosome_length;
-
-	public Child(int parents_amount, int chromosome_length) {
-		super(parents_amount, chromosome_length);
-		this.parents_amount = parents_amount;
-		this.chromosome_length = chromosome_length;
-	}
-
-	
-	public void crossover(){
+	public void crossover(double[][] distance){
 		
-		Tournament tournament = new Tournament(this.parents_amount, this.chromosome_length);
-		City city = new City(this.chromosome_length);
 		
 		int parent1;
 		int parent2;
 		int down;
 		int up;
-		int[][] childs = new int[parents_amount][chromosome_length];
-		int[][] winners = tournament.tournament(city.distance());
 		int[][] population = startPopulation();
+		int[][] childs = new int[parents_amount][chromosome_length];
+		Tournament tournament = new Tournament(parents_amount, chromosome_length);
+		int[][] winners = tournament.tournament(distance, population);
+		
 		
 		Random rnd = ThreadLocalRandom.current();
 		do{
@@ -36,7 +26,7 @@ public class Child extends Population{
 		}while(down != up);
 		
 		
-		for (int i = 0; i < parents_amount-1; i++){
+		for (int i = 0; i < parents_amount/2; i++){
 			parent1 = winners[i][0];
 			parent2 = winners[i][1];
 

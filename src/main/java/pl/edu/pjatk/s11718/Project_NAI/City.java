@@ -1,19 +1,26 @@
 package pl.edu.pjatk.s11718.Project_NAI;
 
 import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class City {
 
-	protected int cities_amount;
-	private int[] cityX;
-	private int[] cityY;
-	Random random = new Random();
+	 int cities_amount;
+	 int[] cityX;
+	 int[] cityY;
 	
-	public City(int cities_amount){
+	
+	public int getCities_amount() {
+		return cities_amount;
+	}
+
+	public void setCities_amount(int cities_amount) {
 		this.cities_amount = cities_amount;
 	}
 	
+	
 	public void citiesCoord(){
+		Random random = ThreadLocalRandom.current();
 		cityX = new int[cities_amount];
 		cityY = new int[cities_amount];
 			

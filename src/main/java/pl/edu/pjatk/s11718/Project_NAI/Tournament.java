@@ -4,20 +4,17 @@ import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Tournament extends Population{
-
-	private int parents_amount;
+	
 	public Tournament(int parents_amount, int chromosome_length) {
-		super(parents_amount, chromosome_length);
 		this.parents_amount = parents_amount;
+		this.chromosome_length = chromosome_length;
 	}
 
-	public int[][] tournament(double distance[][]){
+	public int[][] tournament(double distance[][], int population[][]){
 
 		int parent1;
 		int parent2;
 		int[][] winners = new int[parents_amount/2][2];
-		
-		int[][] population = startPopulation();
 		
 		for (int i = 0; i < parents_amount/2; i++){
 			parent1 = fight(population, distance);
