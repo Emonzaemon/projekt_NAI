@@ -4,10 +4,10 @@ import java.util.Random;
 
 public class City {
 
-	int cities_amount;
+	protected int cities_amount;
+	private int[] cityX;
+	private int[] cityY;
 	Random random = new Random();
-	int[] cityX;
-	int[] cityY;
 	
 	public City(int cities_amount){
 		this.cities_amount = cities_amount;

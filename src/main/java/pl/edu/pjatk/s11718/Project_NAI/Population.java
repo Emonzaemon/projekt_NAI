@@ -5,8 +5,8 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Population {
 	
-	int parents_amount;
-	int chromosome_length;
+	protected int parents_amount;
+	protected int chromosome_length;
 	
 	public Population(int parents_amount, int chromosome_length){
 		this.parents_amount = parents_amount;

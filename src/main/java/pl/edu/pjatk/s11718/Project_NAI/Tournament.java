@@ -5,8 +5,10 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Tournament extends Population{
 
+	private int parents_amount;
 	public Tournament(int parents_amount, int chromosome_length) {
 		super(parents_amount, chromosome_length);
+		this.parents_amount = parents_amount;
 	}
 
 	public int[][] tournament(double distance[][]){
