@@ -28,7 +28,7 @@ public class Population {
 
 	
 	public int[][] startPopulation(){
-		int[][] startPopulation = new int[chromosome_length][parents_amount];
+		int[][] startPopulation = new int[parents_amount][chromosome_length];
 		for (int i = 0; i < parents_amount; i++){
 			int[] parent = parent();
 			for (int j = 0; j < chromosome_length; j++){
@@ -50,11 +50,7 @@ public class Population {
 			parent[i] = i;
 		}
 		parent = shuffleArray(parent);
-		
-		for (int i = 0; i < chromosome_length; i++){
-			System.out.print(parent[i]+" ");
-		}
-		System.out.println(" ");
+
 		return parent;
 	}
 	
@@ -70,17 +66,27 @@ public class Population {
 	    return array;
 	}
 	
-	public double rate(int rand, int array[][], double distance[][]){
+	public double rate(int index, int array[][], double distance[][]){
 		double sum = 0;
 		for(int i = 0; i < chromosome_length-1; i++){
-			int city1 = array[rand][i];
-			int city2 = array[rand][i+1];
+			int city1 = array[index][i];
+			int city2 = array[index][i+1];
 			sum += distance[city1][city2];
 		}
-		sum += distance[array.length-1][0];
+		sum += distance[chromosome_length-1][0];
 		return sum;
 	}
 	
+	public double rate(int array[], double distance[][]){
+		double sum = 0;
+		for(int i = 0; i < chromosome_length-1; i++){
+			int city1 = array[i];
+			int city2 = array[i+1];
+			sum += distance[city1][city2];
+		}
+		sum += distance[chromosome_length-1][0];
+		return sum;
+	}
 	
 
 	

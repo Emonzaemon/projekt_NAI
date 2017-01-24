@@ -27,10 +27,14 @@ public class Tournament extends Population{
 	
 	public int fight(int population[][], double distance[][]){
 		Random rnd = ThreadLocalRandom.current();
+		int rand1;
+		int rand2;
 		
-		int rand1 = rnd.nextInt(parents_amount);
-		int rand2 = rnd.nextInt(parents_amount);
-
+		do{
+		rand1 = rnd.nextInt(parents_amount);
+		rand2 = rnd.nextInt(parents_amount);
+		}while(rand1 == rand2);
+		
 		if(rate(rand1, population, distance)>rate(rand2, population, distance)){
 			return rand1;
 		} else {
