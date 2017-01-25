@@ -10,10 +10,13 @@ public class Tournament extends Population{
 		this.chromosome_length = chromosome_length;
 	}
 
+	//wybor rodzica metoda turniejowa
+	//losowanie 4 rodzicow i wybranie lepszej pary
 	public int[][] tournament(double distance[][], int population[][]){
 
 		int parent1;
 		int parent2;
+		//ilosc przez dwa, bo z kazdej iteracji mamy dwoch potomkow
 		int[][] winners = new int[parents_amount/2][2];
 		
 		for (int i = 0; i < parents_amount/2; i++){
@@ -25,6 +28,7 @@ public class Tournament extends Population{
 		return winners;
 	}
 	
+	//metoda wybierajaca lepszego z dwoch rodzicow
 	public int fight(int population[][], double distance[][]){
 		Random rnd = ThreadLocalRandom.current();
 		int rand1;

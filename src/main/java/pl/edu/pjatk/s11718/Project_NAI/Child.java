@@ -124,36 +124,36 @@ public class Child extends Population{
 		return childs;
 	}
 	
+	//mutowanie
 	public int[][] mutation(int[][] childs){
 		best = new int[chromosome_length];
 		Random rnd = ThreadLocalRandom.current();
 		int mutationIndex1 = rnd.nextInt(chromosome_length);
 		int mutationIndex2 = rnd.nextInt(chromosome_length);
+		//szansa na mutacje 1%
 		int mutationProbability = rnd.nextInt(1000)+1;
 		
+		//mutacja to prosta zamiana miejscami jednego z miast
 		for(int i = 0; i < parents_amount; i++){
 			if(mutationProbability < 10){
 			do{
-			mutationIndex1 = rnd.nextInt(chromosome_length);
-			mutationIndex2 = rnd.nextInt(chromosome_length);
+				mutationIndex1 = rnd.nextInt(chromosome_length);
+				mutationIndex2 = rnd.nextInt(chromosome_length);
 			}while(mutationIndex1 == mutationIndex2);
 			int tmp = childs[i][mutationIndex1];
 			childs[i][mutationIndex1] = childs[i][mutationIndex2];
 			childs[i][mutationIndex2] = tmp;
-
 			}
-			
 		}
-		
-		
 		return childs;
 	}
-	
+	//szukanie najlepszego rozwiazania z danej populacji przy pomocy podanej tablicy odleglosci
 	public int[] checkBest(double[][] distance, int[][]childs){
 		best = new int[chromosome_length];
 		for(int i = 0; i < chromosome_length; i++){
 			best[i] = childs[0][i];
 		}
+		//petla zapisujaca najlepszy wynik, ktory jest potem zwracany przez metode
 		for(int i = 0; i < parents_amount; i++){
 			if(rate( i, childs, distance) < rate(best,distance)){
 				for(int j = 0; j < chromosome_length; j++){

@@ -18,7 +18,7 @@ public class City {
 		this.cities_amount = cities_amount;
 	}
 	
-	
+	//metoda ustawiajaca wspolrzedne miast na ukladzie 500 x 500
 	public void citiesCoord(){
 		Random random = ThreadLocalRandom.current();
 		cityX = new int[cities_amount];
@@ -39,7 +39,7 @@ public class City {
 		}*/
 		
 	}	
-	
+	//metoda zwracajaca macierz odleglosci miedzy miastami
 	public double[][] distance(){
 		double[][] distance = new double[cities_amount][cities_amount];
 		

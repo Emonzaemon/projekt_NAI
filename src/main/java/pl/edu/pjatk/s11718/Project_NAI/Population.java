@@ -26,7 +26,7 @@ public class Population {
 
 	
 
-	
+	//generowanie startowej populacji
 	public int[][] startPopulation(){
 		int[][] startPopulation = new int[parents_amount][chromosome_length];
 		for (int i = 0; i < parents_amount; i++){
@@ -44,6 +44,7 @@ public class Population {
 		return startPopulation;
 	}
 	
+	//generowanie pojedynczego chromosomu (rodzica)
 	public int[] parent(){
 		int[] parent = new int[chromosome_length];
 		for (int i = 0; i < chromosome_length; i++) {
@@ -54,11 +55,11 @@ public class Population {
 		return parent;
 	}
 	
+	//przemieszanie chromosomu rodzica poprzez proste zamiany miejscami
 	public int[] shuffleArray(int[] array){
 	    Random rnd = ThreadLocalRandom.current();
 	    for (int i = array.length - 1; i > 0; i--) {
 	    	int index = rnd.nextInt(i + 1);
-	    	// Simple swap
 	    	int a = array[index];
 	    	array[index] = array[i];
 	    	array[i] = a;
@@ -66,6 +67,8 @@ public class Population {
 	    return array;
 	}
 	
+	//metoda zwracajaca wartosc odleglosci pomiedzy kolejnymi miastami 
+	//w chromosomie z tablicy calej populacji
 	public double rate(int index, int array[][], double distance[][]){
 		double sum = 0;
 		for(int i = 0; i < chromosome_length-1; i++){
@@ -73,10 +76,12 @@ public class Population {
 			int city2 = array[index][i+1];
 			sum += distance[city1][city2];
 		}
+		//dodawanie odlegosci miedzy ostatnim a pierwszym miastem. Komiwojazer wraca do punkty wyjscia
 		sum += distance[chromosome_length-1][0];
 		return sum;
 	}
 	
+	//przeciazona metoda zwracajaca wartosc odleglosci z pojedynczego chromosomu
 	public double rate(int array[], double distance[][]){
 		double sum = 0;
 		for(int i = 0; i < chromosome_length-1; i++){
@@ -84,11 +89,8 @@ public class Population {
 			int city2 = array[i+1];
 			sum += distance[city1][city2];
 		}
+		//dodawanie odlegosci miedzy ostatnim a pierwszym miastem. Komiwojazer wraca do punkty wyjscia
 		sum += distance[chromosome_length-1][0];
 		return sum;
 	}
-	
-
-	
-	
 }
