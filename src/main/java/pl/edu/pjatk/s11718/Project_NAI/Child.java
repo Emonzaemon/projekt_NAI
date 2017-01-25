@@ -80,9 +80,10 @@ public class Child extends Population{
 			for(int j = 0, m, k = 1; j < down; j++){
 	            m = population[parent1][j];
 	            int tmp = j;
-	            for(int l=0; l<chromosome_length-1; l++){
-	               if (m == childs[c][l]){
-	            	   if(tmp+k > chromosome_length-1){
+	            for(int l=0; l<chromosome_length; l++){
+	            	if(j == l)l++;
+	            	if (m == childs[c][l]){
+	            	    if(tmp+k >= chromosome_length){
 			    			tmp = 0;
 			    			k = 0;
 	            	   }
@@ -97,30 +98,29 @@ public class Child extends Population{
 	        for(int j = 0, m, k = 1; j < down; j++){
 	            m = population[parent2][j];
 	            int tmp = j;
-	            for(int l=0; l<chromosome_length-1; l++){
-	               if (m == childs[c+1][l]){
-	            	   if(tmp+k > chromosome_length-1){
+	            for(int l=0; l<chromosome_length; l++){
+	            	if(j == l)l++;
+	            	if (m == childs[c+1][l]){
+	            		if(tmp+k >= chromosome_length){
 			    			tmp = 0;
 			    			k = 0;
-	            	   }
-	                   m = population[parent2][tmp+k];
-	                   k++;
-	                   l = -1;
-	               }
+	            		}
+	            		m = population[parent2][tmp+k];
+	            		k++;
+	            		l = -1;
+	            	}
 	            }
 	            childs[c+1][j] = m;
 	            k = 1;
 	        }
 		}
-		
-		
-		
+		/*	
 		for (int i = 0; i < parents_amount; i++){
 			for (int j = 0; j < chromosome_length; j++){
 				System.out.print(childs[i][j]+ " ");
 			}
 			System.out.println(" ");
-		}
+		}*/
 		return childs;
 	}
 	
@@ -137,8 +137,10 @@ public class Child extends Population{
 			mutationIndex1 = rnd.nextInt(chromosome_length);
 			mutationIndex2 = rnd.nextInt(chromosome_length);
 			}while(mutationIndex1 == mutationIndex2);
-			
+			int tmp = childs[i][mutationIndex1];
 			childs[i][mutationIndex1] = childs[i][mutationIndex2];
+			childs[i][mutationIndex2] = tmp;
+
 			}
 			
 		}

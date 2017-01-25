@@ -28,7 +28,7 @@ public class City {
 			cityX[i] = random.nextInt(500)+1;
 			cityY[i] = random.nextInt(500)+1;
 		}
-		for (int i = 0; i < cities_amount; i++){
+		/*	for (int i = 0; i < cities_amount; i++){
 			System.out.print(cityX[i]+" ");
 
 		}
@@ -36,7 +36,7 @@ public class City {
 		
 		for (int i = 0; i < cities_amount; i++){
 			System.out.print(cityY[i]+" ");
-		}
+		}*/
 		
 	}	
 	
@@ -48,13 +48,13 @@ public class City {
 				distance[i][j] = Math.sqrt(Math.pow((cityX[j]-cityX[i]), 2) + Math.pow((cityY[j]-cityY[i]),2));
 			}
 		}
-		System.out.println(" ");
+	/*	System.out.println(" ");
 		for (int i = 0; i < cities_amount; i++){
 			for (int j = 0; j < cities_amount; j++){
 				System.out.print(distance[i][j]+ " ");
 			}
 			System.out.println(" ");
-		}
+		}*/
 		return distance;
 	}
 }

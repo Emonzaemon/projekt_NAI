@@ -35,12 +35,12 @@ public class Population {
 				startPopulation[i][j] = parent[j];
 			}
 		}
-		for (int i = 0; i < parents_amount; i++){
+	/*	for (int i = 0; i < parents_amount; i++){
 			for (int j = 0; j < chromosome_length; j++){
 				System.out.print(startPopulation[i][j]+ " ");
 			}
 			System.out.println(" ");
-		}
+		} */
 		return startPopulation;
 	}
 	
