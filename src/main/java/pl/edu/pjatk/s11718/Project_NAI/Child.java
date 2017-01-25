@@ -150,8 +150,12 @@ public class Child extends Population{
 	}
 	
 	public int[] checkBest(double[][] distance, int[][]childs){
+		best = new int[chromosome_length];
+		for(int i = 0; i < chromosome_length; i++){
+			best[i] = childs[0][i];
+		}
 		for(int i = 0; i < parents_amount; i++){
-			if(rate( i, childs, distance)>rate(best,distance)){
+			if(rate( i, childs, distance) < rate(best,distance)){
 				for(int j = 0; j < chromosome_length; j++){
 					best[j] = childs[i][j];
 				}

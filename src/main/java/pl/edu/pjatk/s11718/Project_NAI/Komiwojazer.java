@@ -17,14 +17,14 @@ public class Komiwojazer
     	int[][] newPopulation;
     	
     	child.setChromosome_length(cities);
-    	child.setParents_amount(500);
+    	child.setParents_amount(2000);
     	int[][] population = child.startPopulation();
     	int[][] childs = child.crossover(distance, population);
 
     	int[] best = new int[child.getChromosome_length()];
     	int[] bestOfbest = new int[child.getChromosome_length()];
     	
-    	//bestOfbest = child.checkBest(distance, childs);
+    	bestOfbest = child.checkBest(distance, childs);
     	
     	for(int i = 0; i < 10000; i++){
     		newPopulation = child.mutation(childs);
